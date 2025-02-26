@@ -75,7 +75,7 @@ Interface Eureka disponible sur : [http://localhost:8761](http://localhost:8761)
 cd api-gateway
 mvn spring-boot:run
 ```
-Ceci permet d'enregistrer l'API Gateway dans le **Service Registry**.
+##### Ceci permet d'enregistrer l'API Gateway dans le **Service Registry**.
 ![alt text](image-4.png)
 ---
 
@@ -101,7 +101,7 @@ Testez les endpoints avec **Postman** :
 
 ### 🔹 Authentification & Tokens
 1. **Démarrer Keycloak** avec Docker.
-![alt text](image-13.png)
+![alt text](image-21.png)
 2. **Configurer les tokens** correctement.
 ![alt text](image-14.png)
 ![alt text](image-15.png)
