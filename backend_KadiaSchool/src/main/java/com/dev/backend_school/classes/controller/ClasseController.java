@@ -20,6 +20,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Getter
 @Setter
+//@CrossOrigin (value = "http://localhost:5174")
 public class ClasseController {
 
     private final ClasseService classeService;

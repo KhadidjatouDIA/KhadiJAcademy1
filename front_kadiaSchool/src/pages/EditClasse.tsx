@@ -18,7 +18,7 @@ const EditClasse: React.FC = () => {
         const fetchClasse = async () => {
             try {
                 if (id) {
-                    const response = await axios.get<Classe>(`http://localhost:8080/classes/${id}`);
+                    const response = await axios.get<Classe>(`http://localhost:8889/classes/${id}`);
                     setClasse(response.data);
                 }
             } catch (error) {
@@ -44,7 +44,7 @@ const EditClasse: React.FC = () => {
         e.preventDefault();
         if (classe) {
             try {
-                await axios.put<Classe>(`http://localhost:8080/classes/${classe.id}`, classe);
+                await axios.put<Classe>(`http://localhost:8889/classes/${classe.id}`, classe);
                 alert('Classe modifiée avec succès!');
             } catch (error) {
                 console.error(error);

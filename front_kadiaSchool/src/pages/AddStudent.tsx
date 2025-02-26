@@ -38,7 +38,7 @@ const AddStudent: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post<Student>('http://localhost:8080/students', student);
+            await axios.post<Student>('http://localhost:8889/students', student);
             alert('Étudiant ajouté avec succès!');
             // Réinitialiser le formulaire ou rediriger si nécessaire
         } catch (error) {

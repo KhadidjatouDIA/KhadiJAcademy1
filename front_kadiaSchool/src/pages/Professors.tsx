@@ -30,7 +30,7 @@ const Teachers: React.FC = () => {
     const fetchTeachers = async () => {
         try {
             setLoading(true);
-            const response = await axios.get<Teacher[]>('http://localhost:8080/teachers'); // Changer l'URL pour les enseignants
+            const response = await axios.get<Teacher[]>('http://localhost:8889/teachers'); // Changer l'URL pour les enseignants
             setTeachers(response.data);
         } catch (err) {
             const axiosError = err as AxiosError;
@@ -52,7 +52,7 @@ const Teachers: React.FC = () => {
         console.log(`Tentative de suppression de l'enseignant avec l'ID: ${id}`);
         if (window.confirm('Voulez-vous vraiment supprimer cet enseignant ?')) {
             try {
-                const response = await axios.delete(`http://localhost:8080/teachers/${id}`);
+                const response = await axios.delete(`http://localhost:8889/teachers/${id}`);
                 console.log('Response:', response); // Log the response to check for success
                 setTeachers(prevTeachers => prevTeachers.filter(teacher => teacher.id !== id));
                 alert('Enseignant supprimé avec succès!');

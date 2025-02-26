@@ -22,7 +22,7 @@ const Classes: React.FC = () => {
     const fetchClasses = useCallback(async () => {
         try {
             setLoading(true);
-            const response = await axios.get<Classe[]>('http://localhost:8080/classes');
+            const response = await axios.get<Classe[]>('http://localhost:8889/classes');
             setClasses(response.data);
         } catch (err) {
             const axiosError = err as AxiosError;
@@ -54,7 +54,7 @@ const Classes: React.FC = () => {
 
         if (window.confirm('Voulez-vous vraiment supprimer cette classe ?')) {
             try {
-                const response = await axios.delete(`http://localhost:8080/classes/${id}`);
+                const response = await axios.delete(`http://localhost:8889/classes/${id}`);
                 console.log('Response:', response);
                 setClasses(prevClasses => prevClasses.filter(classe => classe.id !== id));
                 alert('Classe supprimée avec succès!');

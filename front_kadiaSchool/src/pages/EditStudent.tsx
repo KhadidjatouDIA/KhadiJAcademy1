@@ -24,7 +24,7 @@ const EditStudent: React.FC = () => {
             try {
                 if (id) {
                     console.log('ID de l\'étudiant:', id); // Utiliser console.log au lieu de Console.log
-                    const response = await axios.get<Student>(`http://localhost:8080/students/${id}`);
+                    const response = await axios.get<Student>(`http://localhost:8889/students/${id}`);
                     setStudent(response.data);
                 }
 
@@ -51,7 +51,7 @@ const EditStudent: React.FC = () => {
         e.preventDefault();
         if (student) {
             try {
-                await axios.put<Student>(`http://localhost:8080/students/${student.id}`, student);
+                await axios.put<Student>(`http://localhost:8889/students/${student.id}`, student);
                 alert('Étudiant modifié avec succès!');
             } catch (error) {
                 console.error(error);

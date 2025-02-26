@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './AddTeacher.css'; // Assurez-vous d'importer le CSS pour le style
+import './AddTeacher.css';
 
 interface Teacher {
     id: number;
@@ -38,7 +38,7 @@ const AddTeacher: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post<Teacher>('http://localhost:8080/teachers', teacher);
+            await axios.post<Teacher>('http://localhost:8889/teachers', teacher);
             alert('Enseignant ajouté avec succès!');
             // Réinitialiser le formulaire ou rediriger si nécessaire
             setTeacher({

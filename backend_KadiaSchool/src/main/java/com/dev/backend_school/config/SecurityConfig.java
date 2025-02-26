@@ -25,12 +25,12 @@ public class SecurityConfig  {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/error").permitAll() // Autoriser les erreurs sans authentification
                         .requestMatchers("/actuator/**").permitAll() // Autoriser les endpoints Actuator
-                        .requestMatchers("/**").authenticated() // Authentification requise pour toutes les autres routes
+                        .requestMatchers("/**").permitAll() // Authentification requise pour toutes les autres routes
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(new JwtConverter())) // Configurer l'authentification JWT
                 )
-                .cors(cors -> cors.disable()) // Désactiver CORS si pas nécessaire, ou le configurer
+                // .cors(cors -> cors.disable()) // Désactiver CORS si pas nécessaire, ou le configurer
                 .csrf(csrf -> csrf.disable()) // Désactiver CSRF (si API REST stateless)
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Pas de session (JWT)
@@ -40,16 +40,16 @@ public class SecurityConfig  {
     }
 
 
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("*");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
+//    @Bean
+//    public CorsFilter corsFilter() {
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        CorsConfiguration config = new CorsConfiguration();
+//        config.setAllowCredentials(true);
+//        config.addAllowedOrigin("*");
+//        config.addAllowedHeader("*");
+//        config.addAllowedMethod("*");
+//        source.registerCorsConfiguration("/**", config);
+//        return new CorsFilter(source);
+//    }
 
 }

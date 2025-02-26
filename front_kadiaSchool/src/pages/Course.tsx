@@ -26,7 +26,7 @@ const Course: React.FC = () => {
     const fetchCourses = async () => {
         try {
             setLoading(true);
-            const response = await axios.get<Course[]>('http://localhost:8080/courses'); // Changer l'URL pour les cours
+            const response = await axios.get<Course[]>('http://localhost:8889/courses'); // Changer l'URL pour les cours
             setCourses(response.data);
         } catch (err) {
             const axiosError = err as AxiosError;
@@ -48,7 +48,7 @@ const Course: React.FC = () => {
         console.log(`Tentative de suppression du cours avec l'ID: ${id}`);
         if (window.confirm('Voulez-vous vraiment supprimer ce cours ?')) {
             try {
-                const response = await axios.delete(`http://localhost:8080/courses/${id}`);
+                const response = await axios.delete(`http://localhost:8889/courses/${id}`);
                 console.log('Response:', response); // Log the response to check for success
                 setCourses(prevCourses => prevCourses.filter(course => course.id !== id));
                 alert('Cours supprimé avec succès!');

@@ -23,7 +23,7 @@ const EditTeacher: React.FC = () => {
             try {
                 if (id) {
                     console.log('ID de l\'enseignant:', id); // Afficher l'ID de l'enseignant
-                    const response = await axios.get<Teacher>(`http://localhost:8080/teachers/${id}`);
+                    const response = await axios.get<Teacher>(`http://localhost:8889/teachers/${id}`);
                     setTeacher(response.data);
                 }
             } catch (error) {
@@ -49,7 +49,7 @@ const EditTeacher: React.FC = () => {
         e.preventDefault();
         if (teacher) {
             try {
-                await axios.put<Teacher>(`http://localhost:8080/teachers/${teacher.id}`, teacher);
+                await axios.put<Teacher>(`http://localhost:8889/teachers/${teacher.id}`, teacher);
                 alert('Enseignant modifié avec succès!');
             } catch (error) {
                 console.error(error);

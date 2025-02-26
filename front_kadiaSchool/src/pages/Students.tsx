@@ -31,7 +31,7 @@ const Students: React.FC = () => {
     const fetchStudents = async () => {
         try {
             setLoading(true);
-            const response = await axios.get<Student[]>('http://localhost:8080/students');
+            const response = await axios.get<Student[]>('http://localhost:8889/students');
             setStudents(response.data);
         } catch (err) {
             const axiosError = err as AxiosError;
@@ -53,7 +53,7 @@ const Students: React.FC = () => {
         console.log(`Tentative de suppression de l'étudiant avec l'ID: ${id}`);
         if (window.confirm('Voulez-vous vraiment supprimer cet étudiant ?')) {
             try {
-                const response = await axios.delete(`http://localhost:8080/students/${id}`);
+                const response = await axios.delete(`http://localhost:8889/students/${id}`);
                 console.log('Response:', response); // Log the response to check for success
                 setStudents(prevStudents => prevStudents.filter(student => student.id !== id));
                 alert('Étudiant supprimé avec succès!');

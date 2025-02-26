@@ -28,7 +28,7 @@ const AddClasse: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post<Classe>("http://localhost:8080/classes", classe);
+            await axios.post<Classe>("http://localhost:8889/classes", classe);
             alert("Classe ajoutée avec succès !");
             setClasse({ name: "", description: "", archive: false }); // Réinitialisation du formulaire
         } catch (error) {
